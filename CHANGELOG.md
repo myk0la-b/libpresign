@@ -1,3 +1,9 @@
+## [1.2.5](https://github.com/myk0la-b/libpresign/compare/v1.2.4...v1.2.5) (2025-07-26)
+
+### Bug Fixes
+
+* **build:** use gmtime_s on Windows instead of gmtime_r ([22df7e3](https://github.com/myk0la-b/libpresign/commit/22df7e33ef1ae551b48d1da112b34b04439f0cd4))
+
 ## [1.2.4](https://github.com/myk0la-b/libpresign/compare/v1.2.3...v1.2.4) (2025-07-26)
 
 ### Bug Fixes
