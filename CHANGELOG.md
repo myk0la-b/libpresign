@@ -1,3 +1,9 @@
+## [1.2.4](https://github.com/myk0la-b/libpresign/compare/v1.2.3...v1.2.4) (2025-07-26)
+
+### Bug Fixes
+
+* **build:** enable static linking of OpenSSL on macOS wheels ([7da3c60](https://github.com/myk0la-b/libpresign/commit/7da3c60f375cff95f984b306cf2dad7aee0e8462))
+
 ## [1.2.3](https://github.com/myk0la-b/libpresign/compare/v1.2.2...v1.2.3) (2025-07-26)
 
 ### Bug Fixes
