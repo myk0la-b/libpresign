@@ -38,7 +38,7 @@
       "changelogFile": "CHANGELOG.md"
     }],
     ["@semantic-release/exec", {
-      "prepareCmd": "uv build"
+      "prepareCmd": "./scripts/build-for-release.sh"
     }],
     ["@semantic-release/git", {
       "assets": ["CHANGELOG.md", "pyproject.toml", "src/module.cpp", "CMakeLists.txt", "libpresign/_version.py"],
