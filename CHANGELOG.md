@@ -1,3 +1,9 @@
+## [1.2.3](https://github.com/myk0la-b/libpresign/compare/v1.2.2...v1.2.3) (2025-07-26)
+
+### Bug Fixes
+
+* **ci:** replace pytest with simple import test in cibuildwheel ([5c1e424](https://github.com/myk0la-b/libpresign/commit/5c1e42487c0897ed28057d316f773921dc4da563))
+
 ## [1.2.2](https://github.com/myk0la-b/libpresign/compare/v1.2.1...v1.2.2) (2025-07-26)
 
 ### Bug Fixes
