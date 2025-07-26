@@ -1,3 +1,9 @@
+## [1.2.2](https://github.com/myk0la-b/libpresign/compare/v1.2.1...v1.2.2) (2025-07-26)
+
+### Bug Fixes
+
+* **ci:** fix Linux OpenSSL installation in cibuildwheel ([5fdf9ca](https://github.com/myk0la-b/libpresign/commit/5fdf9ca5c2ec10dc7005d574f4c258f9a2cf7e3d))
+
 ## [1.2.1](https://github.com/myk0la-b/libpresign/compare/v1.2.0...v1.2.1) (2025-07-26)
 
 ### Bug Fixes
