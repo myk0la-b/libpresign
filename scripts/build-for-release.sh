@@ -5,6 +5,11 @@ set -e
 
 echo "Building libpresign for release..."
 
+# Activate virtual environment if it exists
+if [ -f .venv/bin/activate ]; then
+    source .venv/bin/activate
+fi
+
 # Clean previous builds
 rm -rf dist/
 
