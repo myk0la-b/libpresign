@@ -126,7 +126,11 @@ std::string generatePresignedURL(const std::string &accessKey, const std::string
                                  const std::string &bucket, const std::string &key, int expiresInSeconds, const std::string &endpoint) {
     std::time_t now = std::time(nullptr);
     std::tm tmTime;
+#ifdef _WIN32
+    gmtime_s(&tmTime, &now);
+#else
     gmtime_r(&now, &tmTime);
+#endif
 
     char dateStamp[9];
     strftime(dateStamp, sizeof(dateStamp), "%Y%m%d", &tmTime);
