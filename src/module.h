@@ -1,6 +1,8 @@
 #ifndef S3PRESIGNPYTHON_MODULE_H
 #define S3PRESIGNPYTHON_MODULE_H
 
+// Use Python stable ABI for Python 3.8+
+#define Py_LIMITED_API 0x03080000
 
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
@@ -22,7 +24,7 @@ extern "C" {
     static struct PyModuleDef LibPresign = {
             PyModuleDef_HEAD_INIT,
             "libpresign",
-            "lib for presign",
+            "Package that just pre-signs",
             -1,
             SpamMethods,
     };

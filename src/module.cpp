@@ -4,22 +4,27 @@
 extern "C" {
     static PyObject *
     get(PyObject *self, PyObject *args, PyObject *kwargs) {
-        char *access_key_id = (char*) malloc(sizeof(char) * 100);
-        char *secret_access_key = (char*) malloc(sizeof(char) * 200);
-        char *bucket = (char*) malloc(sizeof(char) * 100);
-        char *key = (char*) malloc(sizeof(char) * 100);
-        char *region = (char*) malloc(sizeof(char) * 100);
+        char *access_key_id;
+        char *secret_access_key;
+        char *region;
+        char *bucket;
+        char *key;
         unsigned int expires = 3600;
+        char *endpoint = NULL;
 
-        region = (char*)"us-east-1";
+        static char *kwlist[] = {(char*)"access_key_id", (char*)"secret_access_key", (char*)"region", (char*)"bucket", (char*)"key", (char*)"expires", (char*)"endpoint", NULL};
 
-        static char *kwlist[] = {(char*)"access_key_id", (char*)"secret_access_key", (char*)"bucket", (char*)"key", (char*)"region", (char*)"expires",  NULL};
-
-        if (!PyArg_ParseTupleAndKeywords(args, kwargs, "ssss|sI:libpresign.get", kwlist, &access_key_id, &secret_access_key, &bucket, &key, &region, &expires)) {
+        if (!PyArg_ParseTupleAndKeywords(args, kwargs, "sszss|Iz:libpresign.get", kwlist, &access_key_id, &secret_access_key, &region, &bucket, &key, &expires, &endpoint)) {
             printf("error");
             return PyUnicode_FromString("None");
         }
 
-        return PyUnicode_FromString(generatePresignedURL(access_key_id, secret_access_key, region, bucket, key, expires).c_str());
+        if (region == NULL) { // in case region is passed as None
+            region = (char*) "us-east-1";
+        }
+
+        std::string endpoint_str = endpoint ? endpoint : "s3.amazonaws.com";
+
+        return PyUnicode_FromString(generatePresignedURL(access_key_id, secret_access_key, region, bucket, key, expires, endpoint_str).c_str());
     }
 }

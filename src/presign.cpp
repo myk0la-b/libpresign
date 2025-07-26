@@ -123,7 +123,7 @@ std::string generateSignature(const unsigned char *signingKey, const unsigned in
 }
 
 std::string generatePresignedURL(const std::string &accessKey, const std::string &secretKey, const std::string &region,
-                                 const std::string &bucket, const std::string &key, int expiresInSeconds) {
+                                 const std::string &bucket, const std::string &key, int expiresInSeconds, const std::string &endpoint) {
     std::time_t now = std::time(nullptr);
     std::tm tmTime;
     gmtime_r(&now, &tmTime);
@@ -153,7 +153,7 @@ std::string generatePresignedURL(const std::string &accessKey, const std::string
     queryParams << "&X-Amz-SignedHeaders=host";
 
     std::string canonicalRequest =
-            "GET\n/" + encodedKey + "\n" + queryParams.str() + "\nhost:" + bucket + ".s3.amazonaws.com\n\nhost\nUNSIGNED-PAYLOAD";
+            "GET\n/" + encodedKey + "\n" + queryParams.str() + "\nhost:" + bucket + "." + endpoint + "\n\nhost\nUNSIGNED-PAYLOAD";
 
 //    std::cout << "Canonical" << std::endl << canonicalRequest << std::endl;
     auto *canonicalRequestHash = (unsigned char*)malloc(32);
@@ -177,7 +177,7 @@ std::string generatePresignedURL(const std::string &accessKey, const std::string
     std::string signature = generateSignature(signingKey, signingKeyLength, stringToSign);
 
     std::ostringstream presignedURL;
-    presignedURL << "https://" << bucket << ".s3.amazonaws.com/" << encodedKey;
+    presignedURL << "https://" << bucket << "." << endpoint << "/" << encodedKey;
     presignedURL << "?X-Amz-Algorithm=" << algorithm;
     presignedURL << "&X-Amz-Credential="
                  << uriEncode(accessKey + "/" + dateStamp + "/" + region + "/" + service + "/aws4_request");
