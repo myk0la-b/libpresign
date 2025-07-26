@@ -94,14 +94,11 @@ skip = "*-musllinux_i686"
 [tool.cibuildwheel.linux]
 manylinux-x86_64-image = "manylinux2014"
 manylinux-aarch64-image = "manylinux2014"
-before-build = "./install-deps.sh"
 
 [tool.cibuildwheel.macos]
 archs = ["x86_64", "arm64", "universal2"]
-before-build = "brew install openssl@3"
 
 [tool.cibuildwheel.windows]
-before-build = "choco install openssl"
 
 [tool.uv]
 dev-dependencies = [

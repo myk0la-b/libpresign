@@ -74,7 +74,11 @@ jobs:
           CIBW_ARCHS_MACOS: x86_64 arm64
           CIBW_ARCHS_WINDOWS: AMD64
           CIBW_BEFORE_ALL_LINUX: |
-            yum install -y openssl-devel || apt-get update && apt-get install -y libssl-dev
+            if command -v yum > /dev/null; then
+              yum install -y openssl-devel
+            elif command -v apt-get > /dev/null; then
+              apt-get update && apt-get install -y libssl-dev
+            fi
           CIBW_BEFORE_ALL_MACOS: |
             brew install openssl@3
             echo "OPENSSL_ROOT_DIR=$(brew --prefix openssl@3)" >> $GITHUB_ENV
