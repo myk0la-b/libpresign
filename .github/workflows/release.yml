@@ -65,7 +65,7 @@ jobs:
       
       - name: Install project dependencies
         run: |
-          uv sync --frozen
+          uv pip install -e .
       
       - name: Configure Git
         run: |
