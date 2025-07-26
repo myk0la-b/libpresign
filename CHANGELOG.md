@@ -1,3 +1,9 @@
+## [1.2.13](https://github.com/myk0la-b/libpresign/compare/v1.2.12...v1.2.13) (2025-07-26)
+
+### Bug Fixes
+
+* **build:** enable stable ABI for Windows wheels ([9b8c205](https://github.com/myk0la-b/libpresign/commit/9b8c20517162dd98e2fb9900e5b349b18017c382))
+
 ## [1.2.12](https://github.com/myk0la-b/libpresign/compare/v1.2.11...v1.2.12) (2025-07-26)
 
 ### Bug Fixes
