@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/myk0la-b/libpresign/compare/v1.2.0...v1.2.1) (2025-07-26)
+
+### Bug Fixes
+
+* **ci:** update cibuildwheel and fix Windows environment variable ([d97827a](https://github.com/myk0la-b/libpresign/commit/d97827a1a0345d73ab48ed4636262802b778db85))
+
 ## [1.0.1](https://github.com/myk0la-b/libpresign/compare/v1.0.0...v1.0.1) (2025-07-26)
 
 ### Bug Fixes
