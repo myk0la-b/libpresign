@@ -87,6 +87,7 @@ if(BUILD_PYTHON_MODULE)
     # Set the output name (without prefix)
     set_target_properties(libpresign PROPERTIES PREFIX "")
     
+    
     # Install rules for scikit-build-core
     install(TARGETS libpresign LIBRARY DESTINATION libpresign)
 endif()
