@@ -12,6 +12,10 @@ option(BUILD_SHARED_LIB "Build shared library" OFF)
 option(BUILD_STATIC_LIB "Build static library" OFF)
 
 # Find OpenSSL
+if(APPLE AND DEFINED ENV{CIBUILDWHEEL})
+    # For macOS wheels, prefer static linking to avoid runtime dependencies
+    set(OPENSSL_USE_STATIC_LIBS TRUE)
+endif()
 find_package(OpenSSL REQUIRED)
 
 # Platform-specific settings
