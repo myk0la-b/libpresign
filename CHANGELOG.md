@@ -1,3 +1,9 @@
+## [1.2.10](https://github.com/myk0la-b/libpresign/compare/v1.2.9...v1.2.10) (2025-07-26)
+
+### Bug Fixes
+
+* **ci:** remove Windows python3.lib workaround ([3d96920](https://github.com/myk0la-b/libpresign/commit/3d9692074c9d43cc0660f2b4cce600b253a8d557))
+
 ## [1.2.9](https://github.com/myk0la-b/libpresign/compare/v1.2.8...v1.2.9) (2025-07-26)
 
 ### Bug Fixes
