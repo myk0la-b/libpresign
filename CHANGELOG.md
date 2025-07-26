@@ -1,3 +1,9 @@
+## [1.2.14](https://github.com/myk0la-b/libpresign/compare/v1.2.13...v1.2.14) (2025-07-26)
+
+### Bug Fixes
+
+* **build:** use Development.SABIModule for Windows stable ABI ([d6640dc](https://github.com/myk0la-b/libpresign/commit/d6640dc85b240f7295130d135c8fb9f1c9d596ad))
+
 ## [1.2.13](https://github.com/myk0la-b/libpresign/compare/v1.2.12...v1.2.13) (2025-07-26)
 
 ### Bug Fixes
