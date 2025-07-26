@@ -1,3 +1,9 @@
+## [1.2.12](https://github.com/myk0la-b/libpresign/compare/v1.2.11...v1.2.12) (2025-07-26)
+
+### Bug Fixes
+
+* **ci:** correct Windows OpenSSL path to C:\Program Files\OpenSSL ([b03685b](https://github.com/myk0la-b/libpresign/commit/b03685b7f726950a19eb74a2a58993dd4ce7a294))
+
 ## [1.2.11](https://github.com/myk0la-b/libpresign/compare/v1.2.10...v1.2.11) (2025-07-26)
 
 ### Bug Fixes
