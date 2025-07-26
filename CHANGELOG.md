@@ -1,3 +1,9 @@
+## [1.2.11](https://github.com/myk0la-b/libpresign/compare/v1.2.10...v1.2.11) (2025-07-26)
+
+### Bug Fixes
+
+* **ci:** improve Windows OpenSSL discovery ([7f33ecc](https://github.com/myk0la-b/libpresign/commit/7f33ecc5d9edc20e8f947ee343ccc96b5d611ac4))
+
 ## [1.2.10](https://github.com/myk0la-b/libpresign/compare/v1.2.9...v1.2.10) (2025-07-26)
 
 ### Bug Fixes
