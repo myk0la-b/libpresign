@@ -83,21 +83,46 @@ if(BUILD_PYTHON_MODULE)
     if(WIN32)
         # On Windows, we need Development component for stable ABI
         find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+        
+        # For stable ABI on Windows, we need to link against python3.lib
+        if(DEFINED ENV{SKBUILD_CMAKE_DEFINE_Py_LIMITED_API})
+            # Look for python3.lib in the NuGet package location
+            if(EXISTS "${Python3_ROOT_DIR}/../build/native/libs/python3.lib")
+                set(Python3_STABLE_LIB "${Python3_ROOT_DIR}/../build/native/libs/python3.lib")
+                message(STATUS "Found python3.lib for stable ABI: ${Python3_STABLE_LIB}")
+            else()
+                message(WARNING "python3.lib not found, falling back to version-specific library")
+            endif()
+        endif()
     else()
         find_package(Python3 COMPONENTS Interpreter Development.Module REQUIRED)
     endif()
     
     # Create Python extension module
-    # Note: We don't use WITH_SOABI for stable ABI compatibility
-    Python3_add_library(libpresign MODULE
+    # Note: We use WITH_SOABI for stable ABI compatibility
+    Python3_add_library(libpresign MODULE WITH_SOABI
         src/module.cpp
         $<TARGET_OBJECTS:presign_core>
     )
     
-    target_link_libraries(libpresign PRIVATE
-        OpenSSL::Crypto
-        ${CMAKE_DL_LIBS}
-    )
+    # Add Py_LIMITED_API definition if specified
+    if(DEFINED Py_LIMITED_API)
+        target_compile_definitions(libpresign PRIVATE Py_LIMITED_API=${Py_LIMITED_API})
+    endif()
+    
+    if(WIN32 AND DEFINED Python3_STABLE_LIB)
+        # Override the default Python library with python3.lib for stable ABI
+        target_link_libraries(libpresign PRIVATE
+            OpenSSL::Crypto
+            ${Python3_STABLE_LIB}
+            ${CMAKE_DL_LIBS}
+        )
+    else()
+        target_link_libraries(libpresign PRIVATE
+            OpenSSL::Crypto
+            ${CMAKE_DL_LIBS}
+        )
+    endif()
     
     # Windows specific settings
     if(WIN32)

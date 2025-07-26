@@ -73,8 +73,9 @@ Changelog = "https://github.com/myk0la-b/libpresign/blob/main/CHANGELOG.md"
 [tool.scikit-build]
 cmake.version = ">=3.15"
 cmake.build-type = "Release"
-wheel.py-api = "cp38"
 wheel.expand-macos-universal-tags = true
+# Enable stable ABI for non-Windows platforms
+wheel.py-api = "cp38"
 
 [tool.scikit-build.cmake.define]
 BUILD_PYTHON_MODULE = "ON"
