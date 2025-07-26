@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/myk0la-b/libpresign/compare/v1.0.0...v1.0.1) (2025-07-26)
+
+### Bug Fixes
+
+* **ci:** use GitHub App token for workflow dispatch ([f8c5e6b](https://github.com/myk0la-b/libpresign/commit/f8c5e6b8d1cb6887046247217f605ef188a1a844))
+
 ## 1.0.0 (2025-07-26)
 
 ### Features
