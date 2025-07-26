@@ -1,3 +1,9 @@
+## [1.2.8](https://github.com/myk0la-b/libpresign/compare/v1.2.7...v1.2.8) (2025-07-26)
+
+### Bug Fixes
+
+* **ci:** remove comment from Windows command that was causing syntax error ([2e9c473](https://github.com/myk0la-b/libpresign/commit/2e9c473e50a4cde1f8e3190b746e16c07900b5b1))
+
 ## [1.2.7](https://github.com/myk0la-b/libpresign/compare/v1.2.6...v1.2.7) (2025-07-26)
 
 ### Bug Fixes
