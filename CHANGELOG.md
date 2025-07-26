@@ -1,3 +1,9 @@
+## [1.2.9](https://github.com/myk0la-b/libpresign/compare/v1.2.8...v1.2.9) (2025-07-26)
+
+### Bug Fixes
+
+* **ci:** improve macOS OpenSSL linking with delocate ([3436720](https://github.com/myk0la-b/libpresign/commit/343672067edfa558473f2c5a79d5612e5292e4eb))
+
 ## [1.2.8](https://github.com/myk0la-b/libpresign/compare/v1.2.7...v1.2.8) (2025-07-26)
 
 ### Bug Fixes
