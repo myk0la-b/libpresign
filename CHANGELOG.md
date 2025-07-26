@@ -1,3 +1,9 @@
+## [1.2.7](https://github.com/myk0la-b/libpresign/compare/v1.2.6...v1.2.7) (2025-07-26)
+
+### Bug Fixes
+
+* **build:** fix Windows build python3.lib linking issue ([7deea3a](https://github.com/myk0la-b/libpresign/commit/7deea3a46dbb1eb1c0e580298eee0e0c939711a6))
+
 ## [1.2.6](https://github.com/myk0la-b/libpresign/compare/v1.2.5...v1.2.6) (2025-07-26)
 
 ### Bug Fixes
