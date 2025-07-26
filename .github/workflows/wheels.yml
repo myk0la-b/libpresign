@@ -91,9 +91,12 @@ jobs:
             DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix openssl@3)/lib:$DYLD_FALLBACK_LIBRARY_PATH" delocate-wheel --require-archs {delocate_archs} -w {dest_dir} -v {wheel}
           CIBW_BEFORE_ALL_WINDOWS: |
             choco install openssl -y --no-progress
-            echo "OPENSSL_ROOT_DIR=C:\Program Files\OpenSSL-Win64" >> $env:GITHUB_ENV
+            dir "C:\Program Files\OpenSSL-Win64"
+            echo "OpenSSL installed at:"
+            where openssl
           CIBW_ENVIRONMENT_WINDOWS: |
             OPENSSL_ROOT_DIR="C:\\Program Files\\OpenSSL-Win64"
+            CMAKE_PREFIX_PATH="C:\\Program Files\\OpenSSL-Win64"
             SETUPTOOLS_USE_DISTUTILS="stdlib"
           CIBW_TEST_REQUIRES: pytest>=7.0
           CIBW_TEST_COMMAND: >

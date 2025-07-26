@@ -12,6 +12,10 @@ option(BUILD_SHARED_LIB "Build shared library" OFF)
 option(BUILD_STATIC_LIB "Build static library" OFF)
 
 # Find OpenSSL
+if(WIN32 AND DEFINED ENV{OPENSSL_ROOT_DIR})
+    set(OPENSSL_ROOT_DIR $ENV{OPENSSL_ROOT_DIR})
+    message(STATUS "Using OPENSSL_ROOT_DIR from environment: ${OPENSSL_ROOT_DIR}")
+endif()
 find_package(OpenSSL REQUIRED)
 
 # Platform-specific settings
