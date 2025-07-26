@@ -79,20 +79,14 @@ endif()
 
 # Python module
 if(BUILD_PYTHON_MODULE)
-    # Find Python
+    # Find Python with appropriate components
     if(WIN32)
-        # On Windows, we need Development component for stable ABI
-        find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-        
-        # For stable ABI on Windows, we need to link against python3.lib
-        if(DEFINED ENV{SKBUILD_CMAKE_DEFINE_Py_LIMITED_API})
-            # Look for python3.lib in the NuGet package location
-            if(EXISTS "${Python3_ROOT_DIR}/../build/native/libs/python3.lib")
-                set(Python3_STABLE_LIB "${Python3_ROOT_DIR}/../build/native/libs/python3.lib")
-                message(STATUS "Found python3.lib for stable ABI: ${Python3_STABLE_LIB}")
-            else()
-                message(WARNING "python3.lib not found, falling back to version-specific library")
-            endif()
+        # On Windows, check if we're requesting SABI module
+        if(DEFINED Python3_FIND_COMPONENTS AND "Development.SABIModule" IN_LIST Python3_FIND_COMPONENTS)
+            find_package(Python3 COMPONENTS ${Python3_FIND_COMPONENTS} REQUIRED)
+        else()
+            # Fallback to regular Development component
+            find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
         endif()
     else()
         find_package(Python3 COMPONENTS Interpreter Development.Module REQUIRED)
@@ -105,24 +99,10 @@ if(BUILD_PYTHON_MODULE)
         $<TARGET_OBJECTS:presign_core>
     )
     
-    # Add Py_LIMITED_API definition if specified
-    if(DEFINED Py_LIMITED_API)
-        target_compile_definitions(libpresign PRIVATE Py_LIMITED_API=${Py_LIMITED_API})
-    endif()
-    
-    if(WIN32 AND DEFINED Python3_STABLE_LIB)
-        # Override the default Python library with python3.lib for stable ABI
-        target_link_libraries(libpresign PRIVATE
-            OpenSSL::Crypto
-            ${Python3_STABLE_LIB}
-            ${CMAKE_DL_LIBS}
-        )
-    else()
-        target_link_libraries(libpresign PRIVATE
-            OpenSSL::Crypto
-            ${CMAKE_DL_LIBS}
-        )
-    endif()
+    target_link_libraries(libpresign PRIVATE
+        OpenSSL::Crypto
+        ${CMAKE_DL_LIBS}
+    )
     
     # Windows specific settings
     if(WIN32)
