@@ -91,6 +91,11 @@ jobs:
           CIBW_BEFORE_ALL_WINDOWS: |
             choco install openssl -y --no-progress
             echo "OPENSSL_ROOT_DIR=C:\Program Files\OpenSSL-Win64" >> $env:GITHUB_ENV
+          CIBW_BEFORE_BUILD_WINDOWS: |
+            # Create python3.lib as a copy of the version-specific library for stable ABI
+            python -c "import sys, os, shutil; v=sys.version_info; libdir=os.path.join(sys.prefix, 'libs'); shutil.copy2(os.path.join(libdir, f'python{v.major}{v.minor}.lib'), os.path.join(libdir, 'python3.lib'))"
+          CIBW_ENVIRONMENT_WINDOWS: |
+            OPENSSL_ROOT_DIR="C:\\Program Files\\OpenSSL-Win64"
           CIBW_TEST_REQUIRES: pytest>=7.0
           CIBW_TEST_COMMAND: >
             python -c "import libpresign; print('libpresign version:', libpresign.__version__); from libpresign import get; print('Successfully imported get function')"

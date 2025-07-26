@@ -70,7 +70,12 @@ endif()
 # Python module
 if(BUILD_PYTHON_MODULE)
     # Find Python
-    find_package(Python3 COMPONENTS Interpreter Development.Module REQUIRED)
+    if(WIN32)
+        # On Windows, we need Development component for stable ABI
+        find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+    else()
+        find_package(Python3 COMPONENTS Interpreter Development.Module REQUIRED)
+    endif()
     
     # Create Python extension module
     # Note: We don't use WITH_SOABI for stable ABI compatibility
@@ -83,6 +88,12 @@ if(BUILD_PYTHON_MODULE)
         OpenSSL::Crypto
         ${CMAKE_DL_LIBS}
     )
+    
+    # Windows specific settings
+    if(WIN32)
+        # Set the library suffix for Windows
+        set_target_properties(libpresign PROPERTIES SUFFIX ".pyd")
+    endif()
     
     # Set the output name (without prefix)
     set_target_properties(libpresign PROPERTIES PREFIX "")
