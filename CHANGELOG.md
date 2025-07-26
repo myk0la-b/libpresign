@@ -1,3 +1,9 @@
+## [1.2.6](https://github.com/myk0la-b/libpresign/compare/v1.2.5...v1.2.6) (2025-07-26)
+
+### Bug Fixes
+
+* **build:** add delocate repair command for macOS wheels ([200b753](https://github.com/myk0la-b/libpresign/commit/200b75316956020639567c072cf242612de05a21))
+
 ## [1.2.5](https://github.com/myk0la-b/libpresign/compare/v1.2.4...v1.2.5) (2025-07-26)
 
 ### Bug Fixes
