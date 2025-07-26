@@ -1,3 +1,30 @@
+## 1.0.0 (2025-07-26)
+
+### Features
+
+* add Python stable ABI support for multi-version compatibility ([c72cdc0](https://github.com/myk0la-b/libpresign/commit/c72cdc0be7f708cddfebdb78949f3ff7e0356dbd))
+* **ci:** add comprehensive GitHub Actions workflows ([9459ce9](https://github.com/myk0la-b/libpresign/commit/9459ce925a66fbb865b6d0d76f4abd3ff5c03740))
+* **typing:** add type stubs and improve type checking ([89084ad](https://github.com/myk0la-b/libpresign/commit/89084ad8ae62989d11f35ec2f50c8fd26107fdc9))
+
+### Bug Fixes
+
+* **ci:** add missing semantic-release dependencies and configuration ([228e755](https://github.com/myk0la-b/libpresign/commit/228e755e8e6f0755db26514ebe9b6f70410cb077))
+* **ci:** install uv and dependencies in release workflow ([3df1b78](https://github.com/myk0la-b/libpresign/commit/3df1b78f401d1542ffb8b563fedddc369906d704))
+* **ci:** use --system flag for uv pip install in CI ([31725ae](https://github.com/myk0la-b/libpresign/commit/31725aef362e749be18c7e0067b6a511e48f2382))
+* **ci:** use uv pip install instead of uv sync in release workflow ([fa271b2](https://github.com/myk0la-b/libpresign/commit/fa271b243ab8bcfd31e06ad21d6b0f41e5cdd39b))
+
+### Documentation
+
+* add initial changelog ([1f54db6](https://github.com/myk0la-b/libpresign/commit/1f54db6f09d46761abd937228146eddbb8de3d18))
+* add migration and development guides ([73601f5](https://github.com/myk0la-b/libpresign/commit/73601f50e1fcd9f05c8a640486042b48b738090e))
+* add MkDocs documentation with Material theme ([c819aba](https://github.com/myk0la-b/libpresign/commit/c819aba85d6af57f144f05c871fac49faf47a2eb))
+* modernize README with comprehensive documentation ([68a9db0](https://github.com/myk0la-b/libpresign/commit/68a9db018db2d9e5a822cf4a3239653a893b33ba))
+
+### Build System
+
+* add build scripts for local development ([23b4e6b](https://github.com/myk0la-b/libpresign/commit/23b4e6b6e5ca0f2ee23a99a44bbc7f20c18ae437))
+* add modern CMake configuration with scikit-build-core ([aff4ce7](https://github.com/myk0la-b/libpresign/commit/aff4ce7284ec5cb6f513162dd2e8d2036eb03b18))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
