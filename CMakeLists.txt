@@ -15,7 +15,17 @@ option(BUILD_STATIC_LIB "Build static library" OFF)
 if(WIN32 AND DEFINED ENV{OPENSSL_ROOT_DIR})
     set(OPENSSL_ROOT_DIR $ENV{OPENSSL_ROOT_DIR})
     message(STATUS "Using OPENSSL_ROOT_DIR from environment: ${OPENSSL_ROOT_DIR}")
+    # Set additional hints for Windows
+    set(CMAKE_PREFIX_PATH ${OPENSSL_ROOT_DIR} ${CMAKE_PREFIX_PATH})
+    set(OPENSSL_USE_STATIC_LIBS TRUE)  # Prefer static libs on Windows
 endif()
+
+# Debug OpenSSL search
+if(WIN32)
+    message(STATUS "CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
+    message(STATUS "Looking for OpenSSL...")
+endif()
+
 find_package(OpenSSL REQUIRED)
 
 # Platform-specific settings
