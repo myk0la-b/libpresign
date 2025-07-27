@@ -1,3 +1,9 @@
+## [1.2.25](https://github.com/myk0la-b/libpresign/compare/v1.2.24...v1.2.25) (2025-07-27)
+
+### Bug Fixes
+
+* **ci:** avoid import conflicts in wheel test ([287ee97](https://github.com/myk0la-b/libpresign/commit/287ee97cbf82029e79c39fdbdaa46c50b2d26fcd))
+
 ## [1.2.24](https://github.com/myk0la-b/libpresign/compare/v1.2.23...v1.2.24) (2025-07-27)
 
 ### Bug Fixes
