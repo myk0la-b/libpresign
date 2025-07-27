@@ -105,6 +105,10 @@ jobs:
         run: |
           # Install the x86_64 wheel on Linux runners
           pip install dist/*-cp38-abi3-manylinux*_x86_64.whl
+          # Debug: show installed files
+          pip show -f libpresign
+          # Change to a different directory to avoid import conflicts with source
+          cd /tmp
           python -c "import libpresign; print(f'Version: {libpresign.__version__}')"
           python -c "from libpresign import get; print(get)"
 
