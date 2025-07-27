@@ -97,9 +97,6 @@ jobs:
             OPENSSL_ROOT_DIR="C:\\Program Files\\OpenSSL"
             CMAKE_PREFIX_PATH="C:\\Program Files\\OpenSSL"
             SETUPTOOLS_USE_DISTUTILS="stdlib"
-            SKBUILD_CMAKE_DEFINE_Python3_FIND_REGISTRY="NEVER"
-            SKBUILD_CMAKE_DEFINE_Python3_FIND_STRATEGY="LOCATION"
-            SKBUILD_CMAKE_DEFINE_Python3_FIND_COMPONENTS="Interpreter;Development.SABIModule"
           CIBW_TEST_REQUIRES: pytest>=7.0
           CIBW_TEST_COMMAND: >
             python -c "import libpresign; print('libpresign version:', libpresign.__version__); from libpresign import get; print('Successfully imported get function')"
