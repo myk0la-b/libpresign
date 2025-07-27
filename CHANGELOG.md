@@ -1,3 +1,9 @@
+## [1.2.21](https://github.com/myk0la-b/libpresign/compare/v1.2.20...v1.2.21) (2025-07-27)
+
+### Bug Fixes
+
+* **ci:** set comprehensive macOS deployment target configuration ([77e94ec](https://github.com/myk0la-b/libpresign/commit/77e94ecde3c9f11f636fabdfa6eb22d9ecd04c9e))
+
 ## [1.2.20](https://github.com/myk0la-b/libpresign/compare/v1.2.19...v1.2.20) (2025-07-27)
 
 ### Bug Fixes
