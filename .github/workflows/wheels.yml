@@ -103,7 +103,8 @@ jobs:
       
       - name: Test wheel installation
         run: |
-          pip install dist/*-cp38-abi3-manylinux*.whl
+          # Install the x86_64 wheel on Linux runners
+          pip install dist/*-cp38-abi3-manylinux*_x86_64.whl
           python -c "import libpresign; print(f'Version: {libpresign.__version__}')"
           python -c "from libpresign import get; print(get)"
 
