@@ -35,12 +35,12 @@ if(APPLE)
     if(CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
         message(STATUS "Building for ARM64 Mac")
         # ARM64 Mac
-        set(MACOSX_DEPLOYMENT_TARGET "13.0" CACHE STRING "Minimum macOS deployment version")
-        set(CMAKE_OSX_DEPLOYMENT_TARGET "13.0" CACHE STRING "Minimum macOS deployment version")
+        set(MACOSX_DEPLOYMENT_TARGET "14.0" CACHE STRING "Minimum macOS deployment version")
+        set(CMAKE_OSX_DEPLOYMENT_TARGET "14.0" CACHE STRING "Minimum macOS deployment version")
     else()
         # Intel Mac
-        set(MACOSX_DEPLOYMENT_TARGET "10.9" CACHE STRING "Minimum macOS deployment version")
-        set(CMAKE_OSX_DEPLOYMENT_TARGET "10.9" CACHE STRING "Minimum macOS deployment version")
+        set(MACOSX_DEPLOYMENT_TARGET "14.0" CACHE STRING "Minimum macOS deployment version")
+        set(CMAKE_OSX_DEPLOYMENT_TARGET "14.0" CACHE STRING "Minimum macOS deployment version")
     endif()
 elseif(UNIX)
     # Linux specific flags
