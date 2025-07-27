@@ -1,3 +1,9 @@
+## [1.2.22](https://github.com/myk0la-b/libpresign/compare/v1.2.21...v1.2.22) (2025-07-27)
+
+### Bug Fixes
+
+* **build:** move deployment target settings to architecture-specific overrides ([7e6f1d4](https://github.com/myk0la-b/libpresign/commit/7e6f1d43cbb69d87b18ce4a80d1529d053ba2100))
+
 ## [1.2.21](https://github.com/myk0la-b/libpresign/compare/v1.2.20...v1.2.21) (2025-07-27)
 
 ### Bug Fixes
