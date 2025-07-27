@@ -94,15 +94,56 @@ __version__ = "${version}"
 [tool.cibuildwheel]
 build = "cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
 skip = "*-musllinux_i686"
+test-requires = "pytest>=7.0"
+test-command = "python -c \"import libpresign; print('libpresign version:', libpresign.__version__); from libpresign import get; print('Successfully imported get function')\""
+build-verbosity = 1
 
 [tool.cibuildwheel.linux]
 manylinux-x86_64-image = "manylinux2014"
 manylinux-aarch64-image = "manylinux2014"
+before-all = """
+if command -v yum > /dev/null; then
+  yum install -y openssl-devel
+elif command -v apt-get > /dev/null; then
+  apt-get update && apt-get install -y libssl-dev
+fi
+"""
 
 [tool.cibuildwheel.macos]
-archs = ["x86_64", "arm64", "universal2"]
+archs = ["x86_64", "arm64"]
+before-all = """
+# Install ARM64 OpenSSL (native on Apple Silicon runners)
+brew install openssl@3
+# Install x86_64 OpenSSL for Intel builds
+if [[ $(uname -m) == "arm64" ]]; then
+  # On Apple Silicon, install Rosetta and x86_64 Homebrew
+  softwareupdate --install-rosetta --agree-to-license || true
+  arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  arch -x86_64 /usr/local/bin/brew install openssl@3
+fi
+"""
+repair-wheel-command = [
+  "delocate-listdeps {wheel}",
+  "delocate-wheel --require-archs {delocate_archs} -w {dest_dir} -v {wheel}",
+]
+
+[tool.cibuildwheel.macos.environment]
+CIBUILDWHEEL = "1"
+
+[[tool.cibuildwheel.overrides]]
+select = "*-macosx_x86_64"
+environment = { OPENSSL_ROOT_DIR = "/usr/local/opt/openssl@3", CMAKE_PREFIX_PATH = "/usr/local/opt/openssl@3", DYLD_FALLBACK_LIBRARY_PATH = "/usr/local/opt/openssl@3/lib:$DYLD_FALLBACK_LIBRARY_PATH" }
+
+[[tool.cibuildwheel.overrides]]
+select = "*-macosx_arm64"
+environment = { OPENSSL_ROOT_DIR = "/opt/homebrew/opt/openssl@3", CMAKE_PREFIX_PATH = "/opt/homebrew/opt/openssl@3", DYLD_FALLBACK_LIBRARY_PATH = "/opt/homebrew/opt/openssl@3/lib:$DYLD_FALLBACK_LIBRARY_PATH" }
 
 [tool.cibuildwheel.windows]
+before-all = """
+choco install openssl -y --no-progress
+where nuget || (powershell -Command "Invoke-WebRequest https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile nuget.exe" && set PATH=%CD%;%PATH%)
+"""
+environment = { OPENSSL_ROOT_DIR = "C:\\Program Files\\OpenSSL", CMAKE_PREFIX_PATH = "C:\\Program Files\\OpenSSL", SETUPTOOLS_USE_DISTUTILS = "stdlib" }
 
 [tool.uv]
 dev-dependencies = [
