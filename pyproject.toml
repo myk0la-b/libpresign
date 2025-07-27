@@ -83,7 +83,7 @@ BUILD_STATIC_LIB = "OFF"
 Py_LIMITED_API = "0x03080000"
 Python3_FIND_REGISTRY = "NEVER"
 Python3_FIND_STRATEGY = "LOCATION"
-Python3_FIND_COMPONENTS = "Interpreter;Development.SABIModule"
+Python3_FIND_COMPONENTS = "Interpreter;Development.Module;Development.SABIModule"
 
 [[tool.scikit-build.generate]]
 path = "libpresign/_version.py"

@@ -83,26 +83,44 @@ if(BUILD_PYTHON_MODULE)
     if(WIN32)
         # On Windows, check if we're requesting SABI module
         if(DEFINED Python3_FIND_COMPONENTS AND "Development.SABIModule" IN_LIST Python3_FIND_COMPONENTS)
-            find_package(Python3 COMPONENTS ${Python3_FIND_COMPONENTS} REQUIRED)
+            # For SABI, we need both Development.Module and Development.SABIModule
+            find_package(Python3 COMPONENTS Interpreter Development.Module Development.SABIModule REQUIRED)
+            set(USE_SABI TRUE)
         else()
             # Fallback to regular Development component
             find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+            set(USE_SABI FALSE)
         endif()
     else()
-        find_package(Python3 COMPONENTS Interpreter Development.Module REQUIRED)
+        # On non-Windows, always use stable ABI
+        find_package(Python3 COMPONENTS Interpreter Development.Module Development.SABIModule REQUIRED)
+        set(USE_SABI TRUE)
     endif()
     
     # Create Python extension module
-    # Note: We use WITH_SOABI for stable ABI compatibility
-    Python3_add_library(libpresign MODULE WITH_SOABI
-        src/module.cpp
-        $<TARGET_OBJECTS:presign_core>
-    )
-    
-    target_link_libraries(libpresign PRIVATE
-        OpenSSL::Crypto
-        ${CMAKE_DL_LIBS}
-    )
+    if(USE_SABI)
+        # Use stable ABI
+        Python3_add_library(libpresign MODULE USE_SABI
+            src/module.cpp
+            $<TARGET_OBJECTS:presign_core>
+        )
+        target_link_libraries(libpresign PRIVATE
+            Python3::SABIModule
+            OpenSSL::Crypto
+            ${CMAKE_DL_LIBS}
+        )
+    else()
+        # Regular build without stable ABI
+        Python3_add_library(libpresign MODULE
+            src/module.cpp
+            $<TARGET_OBJECTS:presign_core>
+        )
+        target_link_libraries(libpresign PRIVATE
+            Python3::Module
+            OpenSSL::Crypto
+            ${CMAKE_DL_LIBS}
+        )
+    endif()
     
     # Windows specific settings
     if(WIN32)
