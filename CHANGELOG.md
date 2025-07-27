@@ -1,3 +1,9 @@
+## [1.2.18](https://github.com/myk0la-b/libpresign/compare/v1.2.17...v1.2.18) (2025-07-27)
+
+### Bug Fixes
+
+* **ci:** use forward slashes for Windows OpenSSL paths ([a710844](https://github.com/myk0la-b/libpresign/commit/a710844535dbc987cc7319fcc8c7fee61c7cf86d))
+
 ## [1.2.17](https://github.com/myk0la-b/libpresign/compare/v1.2.16...v1.2.17) (2025-07-27)
 
 ### Bug Fixes
