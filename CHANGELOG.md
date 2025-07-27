@@ -1,3 +1,9 @@
+## [1.2.20](https://github.com/myk0la-b/libpresign/compare/v1.2.19...v1.2.20) (2025-07-27)
+
+### Bug Fixes
+
+* **build:** add macosx-deployment-target to cibuildwheel config ([140f167](https://github.com/myk0la-b/libpresign/commit/140f167d4625f12e25e8bcb529d016aac0d514bf))
+
 ## [1.2.19](https://github.com/myk0la-b/libpresign/compare/v1.2.18...v1.2.19) (2025-07-27)
 
 ### Bug Fixes
