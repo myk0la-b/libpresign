@@ -1,3 +1,9 @@
+## [1.2.24](https://github.com/myk0la-b/libpresign/compare/v1.2.23...v1.2.24) (2025-07-27)
+
+### Bug Fixes
+
+* **ci:** install correct architecture wheel in test workflow ([d4d4f12](https://github.com/myk0la-b/libpresign/commit/d4d4f122383e321e459ae2a33aa44408197c9551))
+
 ## [1.2.23](https://github.com/myk0la-b/libpresign/compare/v1.2.22...v1.2.23) (2025-07-27)
 
 ### Bug Fixes
