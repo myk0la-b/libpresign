@@ -1,3 +1,9 @@
+## [1.2.19](https://github.com/myk0la-b/libpresign/compare/v1.2.18...v1.2.19) (2025-07-27)
+
+### Bug Fixes
+
+* **build:** set macOS deployment target to 14.0 to match OpenSSL requirements ([91706cf](https://github.com/myk0la-b/libpresign/commit/91706cf4c129476fe7e27cdad5d562ba6f910ae5))
+
 ## [1.2.18](https://github.com/myk0la-b/libpresign/compare/v1.2.17...v1.2.18) (2025-07-27)
 
 ### Bug Fixes
