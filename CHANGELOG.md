@@ -1,3 +1,9 @@
+## [1.2.23](https://github.com/myk0la-b/libpresign/compare/v1.2.22...v1.2.23) (2025-07-27)
+
+### Bug Fixes
+
+* **ci:** correct wheel pattern for stable ABI in test workflow ([43ba3d7](https://github.com/myk0la-b/libpresign/commit/43ba3d786dd8a3058e4becefc8f84259b3034421))
+
 ## [1.2.22](https://github.com/myk0la-b/libpresign/compare/v1.2.21...v1.2.22) (2025-07-27)
 
 ### Bug Fixes
