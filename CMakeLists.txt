@@ -99,8 +99,8 @@ if(BUILD_PYTHON_MODULE)
     
     # Create Python extension module
     if(USE_SABI)
-        # Use stable ABI
-        Python3_add_library(libpresign MODULE USE_SABI
+        # Use stable ABI - USE_SABI requires version, use 3.8 as minimum
+        Python3_add_library(libpresign MODULE USE_SABI 3.8
             src/module.cpp
             $<TARGET_OBJECTS:presign_core>
         )
