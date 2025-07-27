@@ -1,3 +1,10 @@
+## [1.2.16](https://github.com/myk0la-b/libpresign/compare/v1.2.15...v1.2.16) (2025-07-27)
+
+### Bug Fixes
+
+* **build:** properly configure CMake for stable ABI builds ([8bc1207](https://github.com/myk0la-b/libpresign/commit/8bc1207cb11e12989e8a9692077bbbcfac240a53))
+* **build:** specify version for USE_SABI in Python3_add_library ([175ebcd](https://github.com/myk0la-b/libpresign/commit/175ebcdb73027238dcf54ee33dfc4ad8667befc0))
+
 ## [1.2.15](https://github.com/myk0la-b/libpresign/compare/v1.2.14...v1.2.15) (2025-07-27)
 
 ### Bug Fixes
