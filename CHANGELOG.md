@@ -1,3 +1,9 @@
+## [1.2.17](https://github.com/myk0la-b/libpresign/compare/v1.2.16...v1.2.17) (2025-07-27)
+
+### Bug Fixes
+
+* **ci:** fix macOS x86_64 wheel builds by using correct OpenSSL paths ([41ef76a](https://github.com/myk0la-b/libpresign/commit/41ef76a082b0d154201afdffcdd61af3c517ddb4))
+
 ## [1.2.16](https://github.com/myk0la-b/libpresign/compare/v1.2.15...v1.2.16) (2025-07-27)
 
 ### Bug Fixes
