@@ -1,3 +1,10 @@
+## [1.2.15](https://github.com/myk0la-b/libpresign/compare/v1.2.14...v1.2.15) (2025-07-27)
+
+### Bug Fixes
+
+* **build:** correct py-api format for scikit-build-core ([286fba7](https://github.com/myk0la-b/libpresign/commit/286fba74542bdaadec2696905278fb1d263489df))
+* **build:** move Windows SABI config to pyproject.toml ([e9040bd](https://github.com/myk0la-b/libpresign/commit/e9040bd5fd9904a33fb71be8123f66393155ee85))
+
 ## [1.2.14](https://github.com/myk0la-b/libpresign/compare/v1.2.13...v1.2.14) (2025-07-26)
 
 ### Bug Fixes
