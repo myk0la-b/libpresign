@@ -111,6 +111,7 @@ fi
 
 [tool.cibuildwheel.macos]
 archs = ["x86_64", "arm64"]
+macosx-deployment-target = "14.0"
 before-all = """
 # Install ARM64 OpenSSL (native on Apple Silicon runners)
 brew install openssl@3
