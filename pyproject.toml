@@ -143,7 +143,7 @@ before-all = """
 choco install openssl -y --no-progress
 where nuget || (powershell -Command "Invoke-WebRequest https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile nuget.exe" && set PATH=%CD%;%PATH%)
 """
-environment = { OPENSSL_ROOT_DIR = "C:\\Program Files\\OpenSSL", CMAKE_PREFIX_PATH = "C:\\Program Files\\OpenSSL", SETUPTOOLS_USE_DISTUTILS = "stdlib" }
+environment = { OPENSSL_ROOT_DIR = "C:/Program Files/OpenSSL", CMAKE_PREFIX_PATH = "C:/Program Files/OpenSSL", SETUPTOOLS_USE_DISTUTILS = "stdlib" }
 
 [tool.uv]
 dev-dependencies = [
