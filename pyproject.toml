@@ -84,6 +84,7 @@ Py_LIMITED_API = "0x03080000"
 Python3_FIND_REGISTRY = "NEVER"
 Python3_FIND_STRATEGY = "LOCATION"
 Python3_FIND_COMPONENTS = "Interpreter;Development.Module;Development.SABIModule"
+CMAKE_OSX_DEPLOYMENT_TARGET = "14.0"
 
 [[tool.scikit-build.generate]]
 path = "libpresign/_version.py"
@@ -111,7 +112,6 @@ fi
 
 [tool.cibuildwheel.macos]
 archs = ["x86_64", "arm64"]
-macosx-deployment-target = "14.0"
 before-all = """
 # Install ARM64 OpenSSL (native on Apple Silicon runners)
 brew install openssl@3
@@ -130,6 +130,8 @@ repair-wheel-command = [
 
 [tool.cibuildwheel.macos.environment]
 CIBUILDWHEEL = "1"
+MACOSX_DEPLOYMENT_TARGET = "14.0"
+CMAKE_OSX_DEPLOYMENT_TARGET = "14.0"
 
 [[tool.cibuildwheel.overrides]]
 select = "*-macosx_x86_64"
